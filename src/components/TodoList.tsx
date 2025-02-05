@@ -2,15 +2,19 @@
 import { TypeItemData } from "../types";
 import TodoItem from "./TodoItem"
 interface TodoLIstProps{
-    dataProp:TypeItemData[]
+    deleteTodo:(id:string)=>void;
+    toogleComplete:(id:string)=>void;
+    dataProp:TypeItemData[];
 }
 
-const TodoList = ({dataProp}:TodoLIstProps) => {
+const TodoList = ({dataProp,deleteTodo,toogleComplete}:TodoLIstProps) => {
 
     return (
         <div>
             <h4>Задачи</h4>
             {dataProp.map((item:TypeItemData) =><TodoItem key={item.id}
+            toogleComplete={toogleComplete}
+            deleteTodo={deleteTodo}
             {...item}
             />)}
      

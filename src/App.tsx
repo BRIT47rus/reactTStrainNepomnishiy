@@ -19,13 +19,31 @@ function App() {
 
     setData([newData, ...data])
   }
+  const deleteTodo = (id: string) => {
+    setData(data.filter(item => item.id !== id      
+    ))
+
+  }
+  const toogleComplete = (id: string) => {
+
+    setData(data.map((item) => {
+      if (item.id === id) {
+        return { ...item, completed: !item.completed }
+      }
+      return item
+    }))
+
+
+  }
 
   return (
     <div>
       <FormTodo addTodo={addTodo}
       />
       <TodoList
-      dataProp={data}
+        dataProp={data}
+        deleteTodo={deleteTodo}
+        toogleComplete={toogleComplete}
       />
     </div>
   )
