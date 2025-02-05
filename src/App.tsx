@@ -25,7 +25,7 @@ function App() {
       <FormTodo addTodo={addTodo}
       />
       <TodoList
-      {data}
+      dataProp={data}
       />
     </div>
   )

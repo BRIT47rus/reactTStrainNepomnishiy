@@ -7,11 +7,12 @@ type FormProps = {
 const FormTodo = ({ addTodo }: FormProps) => {
     const inpRef = useRef<HTMLInputElement|null>(null)
     const handleAddTask = () => {
+
         if(inpRef.current){
 
             addTodo(inpRef.current.value.trim())
+            inpRef.current.value = '';
         }
-        inpRef.current.value = '';
       
     }
 
